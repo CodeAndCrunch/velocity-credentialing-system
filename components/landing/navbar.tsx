@@ -15,17 +15,7 @@ export function Navbar() {
                     </span>
                 </div>
 
-                <div className="hidden md:flex items-center gap-8">
-                    <Link href="#cases" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                        Cases
-                    </Link>
-                    <Link href="#extraction" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                        Extraction
-                    </Link>
-                    <Link href="#management" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                        Management
-                    </Link>
-                </div>
+
 
                 <div className="flex items-center gap-4">
                     <Link href="/login" className="text-sm font-medium text-muted-foreground hover:text-foreground hidden sm:block">
