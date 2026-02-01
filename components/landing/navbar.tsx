@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export function Navbar() {
     return (
@@ -16,14 +17,28 @@ export function Navbar() {
                 </div>
 
 
-
                 <div className="flex items-center gap-4">
-                    <Link href="/login" className="text-sm font-medium text-muted-foreground hover:text-foreground hidden sm:block">
-                        Log in
-                    </Link>
-                    <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/20">
-                        Get Started
-                    </Button>
+                    <SignedOut>
+                        <SignInButton mode="modal">
+                            <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:text-foreground hidden sm:block">
+                                Log in
+                            </Button>
+                        </SignInButton>
+                        <Link href="/sign-up">
+                            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/20">
+                                Get Started
+                            </Button>
+                        </Link>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton
+                            appearance={{
+                                elements: {
+                                    avatarBox: "size-9 border border-white/10"
+                                }
+                            }}
+                        />
+                    </SignedIn>
                 </div>
             </div>
         </nav>
